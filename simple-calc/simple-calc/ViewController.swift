@@ -14,6 +14,9 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
   }
+  
+  @IBOutlet weak var endNumberBtn: UIButton!
+  
   var solved = false
   var decimalUsed = false
   var solverType = 0
@@ -26,13 +29,20 @@ class ViewController: UIViewController {
     switch sender.selectedSegmentIndex {
       case 0:
         solverType = 0
+        endNumberBtn.isHidden = true
       
       case 1:
         solverType = 1
+        endNumberBtn.isHidden = false
       
       default:
         break;
     }
+  }
+  
+  //End of Number Button
+  @IBAction func endNum(_ sender: Any) {
+    textField.text = textField.text! + " "
   }
   
   //Number Button Actions
@@ -52,7 +62,11 @@ class ViewController: UIViewController {
     solveEquation()
   }
   @IBAction func functions(_ sender: UIButton) {
-    textField.text = textField.text! + String(" " + sender.currentTitle! + " ")
+    if (solverType == 0) {
+      textField.text = textField.text! + String(" " + sender.currentTitle! + " ")
+    } else {
+      textField.text = textField.text! + sender.currentTitle!
+    }
     decimalUsed = false
   }
   
@@ -152,31 +166,81 @@ class ViewController: UIViewController {
     } else {
       switch equationArray[equationArray.count - 1] {
         case "+":
-          for i in 0..<equationArray.count - 1 {
-            var result = 0
-          }
-          textField.text = "0"
+          if (Int(equationArray[0]) == nil || Int(equationArray[1]) == nil) {
+            textField.text = String(Float(equationArray[0])! + Float(equationArray[1])!)
+          } else {
+            textField.text = String(Int(equationArray[0])! + Int(equationArray[1])!)
+        }
         
         case "-":
-          textField.text = "0"
+          if (Int(equationArray[0]) == nil || Int(equationArray[1]) == nil) {
+            textField.text = String(Float(equationArray[0])! - Float(equationArray[1])!)
+          } else {
+            textField.text = String(Int(equationArray[0])! - Int(equationArray[1])!)
+        }
         
         case "x":
-          textField.text = "0"
+          if (Int(equationArray[0]) == nil || Int(equationArray[1]) == nil) {
+            textField.text = String(Float(equationArray[0])! * Float(equationArray[1])!)
+          } else {
+            textField.text = String(Int(equationArray[0])! * Int(equationArray[1])!)
+        }
         
         case "÷":
-          textField.text = "0"
+          if (Int(equationArray[0]) == nil || Int(equationArray[1]) == nil) {
+            textField.text = String(Float(equationArray[0])! / Float(equationArray[1])!)
+          } else {
+            textField.text = String(Int(equationArray[0])! / Int(equationArray[1])!)
+        }
         
         case "%":
-          textField.text = "0"
+          let num1 = Int(equationArray[0])
+          let num2 = Int(equationArray[1])
+          if (num1 == nil || num2 == nil) {
+            textField.text = "0"
+          } else {
+            textField.text = String(num1! % num2!)
+        }
         
         case "avg":
-          textField.text = "0"
+          var isDouble = false
+          var doubleResult : Double = 0.0
+          var intResult = 0
+          var numVals = 0
+          for i in stride(from: 0, to: equationArray.count-1, by: 1) {
+            let numInt = Int(equationArray[i])
+            if (numInt == nil) {
+              let numDouble = Double(equationArray[i])!
+              if (isDouble) {
+                doubleResult += numDouble
+              } else {
+                doubleResult = Double(intResult) + numDouble
+                isDouble = true
+              }
+            } else {
+              if (isDouble) {
+                doubleResult += Double(numInt!)
+              } else {
+                intResult += numInt!
+              }
+            }
+            numVals += 1
+          }
+          if (isDouble) {
+            textField.text = String(doubleResult / Double(numVals))
+          } else {
+            textField.text = String(intResult / numVals)
+        }
         
         case "count":
-          textField.text = "0"
+          textField.text = String(equationArray.count - 1)
         
         case "fact":
-          textField.text = "0"
+          var answer = 1
+          for i in 1...Int(equationArray[0])! {
+            answer = i * answer
+          }
+          textField.text = String(answer)
         
         default:
           textField.text = "0"
