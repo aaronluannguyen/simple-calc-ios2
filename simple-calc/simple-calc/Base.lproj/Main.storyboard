@@ -212,7 +212,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="functionSubtract:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hlz-pb-VKd"/>
+                                    <action selector="functions:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SJJ-e6-Ie5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hA-Pe-M4F">
@@ -229,7 +229,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="functionDivide:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zoi-do-iht"/>
+                                    <action selector="functions:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NwI-al-Ts1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ceC-Mc-7eH">
@@ -246,7 +246,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="functionAdd:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8HJ-xR-wXm"/>
+                                    <action selector="functions:" destination="BYZ-38-t0r" eventType="touchUpInside" id="num-Ns-JLn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0f-sj-Ub0">
@@ -263,7 +263,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="functionMultiply:" destination="BYZ-38-t0r" eventType="touchUpInside" id="psz-Tq-t3I"/>
+                                    <action selector="functions:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ytx-MH-cfx"/>
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPb-P5-xIG">
@@ -305,7 +305,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Avg">
+                                <state key="normal" title="avg">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -314,7 +314,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="functionAverage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MZh-bJ-ID2"/>
+                                    <action selector="functions:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kPf-Gf-a6y"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7z-jk-5Mq">
@@ -322,7 +322,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Count">
+                                <state key="normal" title="count">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -331,7 +331,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="functionCount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3px-a1-IfM"/>
+                                    <action selector="functions:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aeL-Kt-fGZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HwV-Je-Dle">
@@ -339,7 +339,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Fact">
+                                <state key="normal" title="fact">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -348,7 +348,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="functionFactorial:" destination="BYZ-38-t0r" eventType="touchUpInside" id="D5m-yU-a2U"/>
+                                    <action selector="functions:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Szp-mH-7y6"/>
                                 </connections>
                             </button>
                         </subviews>

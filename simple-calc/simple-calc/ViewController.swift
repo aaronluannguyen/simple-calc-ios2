@@ -37,26 +37,8 @@ class ViewController: UIViewController {
   @IBAction func functionEquals(_ sender: Any) {
     solveEquation()
   }
-  @IBAction func functionAdd(_ sender: Any) {
-    textField.text = textField.text! + " + "
-  }
-  @IBAction func functionSubtract(_ sender: Any) {
-    textField.text = textField.text! + " - "
-  }
-  @IBAction func functionMultiply(_ sender: Any) {
-    textField.text = textField.text! + " * "
-  }
-  @IBAction func functionDivide(_ sender: Any) {
-    textField.text = textField.text! + " / "
-  }
-  @IBAction func functionAverage(_ sender: Any) {
-    textField.text = textField.text! + " avg "
-  }
-  @IBAction func functionCount(_ sender: Any) {
-    textField.text = textField.text! + " count "
-  }
-  @IBAction func functionFactorial(_ sender: Any) {
-    textField.text = textField.text! + " fact "
+  @IBAction func functions(_ sender: UIButton) {
+    textField.text = textField.text! + String(" " + sender.currentTitle! + " ")
   }
   
   //Math Functions
@@ -73,19 +55,20 @@ class ViewController: UIViewController {
       case "-":
         textField.text = String(Int(equationArray[0])! - Int(equationArray[2])!)
       
-      case "*":
+      case "x":
         textField.text = String(Int(equationArray[0])! * Int(equationArray[2])!)
       
-      case "/":
+      case "÷":
         textField.text = String(Int(equationArray[0])! / Int(equationArray[2])!)
       
       case "avg":
-        var index = 0
         var result = 0
-        for i in stride(from: 0, to: equationArray.count - 1, by: 2) {
+        var numVals = 0
+        for i in stride(from: 0, to: equationArray.count, by: 2) {
           result = result + Int(equationArray[i])!
+          numVals += 1
         }
-        textField.text = "0"
+        textField.text = String(result / numVals)
       
       case "count":
         if (equationArray.count % 2 == 1) {
