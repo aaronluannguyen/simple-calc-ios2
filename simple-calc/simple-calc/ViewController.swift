@@ -14,48 +14,28 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
   }
+  var solved = false
+  var decimalUsed = false
 
   //Text field
   @IBOutlet weak var textField: UILabel!
   
 
   //Number Button Actions
-  @IBAction func number0(_ sender: Any) {
-    textField.text = textField.text! + "0"
-  }
-  @IBAction func number1(_ sender: Any) {
-    textField.text = textField.text! + "1"
-  }
-  @IBAction func number2(_ sender: Any) {
-    textField.text = textField.text! + "2"
-  }
-  @IBAction func number3(_ sender: Any) {
-    textField.text = textField.text! + "3"
-  }
-  @IBAction func number4(_ sender: Any) {
-    textField.text = textField.text! + "4"
-  }
-  @IBAction func number5(_ sender: Any) {
-    textField.text = textField.text! + "5"
-  }
-  @IBAction func number6(_ sender: Any) {
-    textField.text = textField.text! + "6"
-  }
-  @IBAction func number7(_ sender: Any) {
-    textField.text = textField.text! + "7"
-  }
-  @IBAction func number8(_ sender: Any) {
-    textField.text = textField.text! + "8"
-  }
-  @IBAction func number9(_ sender: Any) {
-    textField.text = textField.text! + "9"
+  @IBAction func numbers(_ sender: UIButton) {
+    resetText()
+    textField.text = textField.text! + sender.currentTitle!
   }
   @IBAction func decimal(_ sender: Any) {
-    textField.text = textField.text! + "."
+    if (!decimalUsed) {
+      textField.text = textField.text! + "."
+      decimalUsed = true
+    }
   }
   
   //Function Button Actions
   @IBAction func functionEquals(_ sender: Any) {
+    solveEquation()
   }
   @IBAction func functionAdd(_ sender: Any) {
     textField.text = textField.text! + " + "
@@ -77,6 +57,61 @@ class ViewController: UIViewController {
   }
   @IBAction func functionFactorial(_ sender: Any) {
     textField.text = textField.text! + " fact "
+  }
+  
+  //Math Functions
+  public func getStringArray(_ arg: String) -> [String] {
+    return arg.split(separator: " ").map({substr in String(substr)})
+  }
+  
+  public func solveEquation() {
+    let equationArray = getStringArray(textField.text!)
+    switch equationArray[1] {
+      case "+":
+        textField.text = String(Int(equationArray[0])! + Int(equationArray[2])!)
+      
+      case "-":
+        textField.text = String(Int(equationArray[0])! - Int(equationArray[2])!)
+      
+      case "*":
+        textField.text = String(Int(equationArray[0])! * Int(equationArray[2])!)
+      
+      case "/":
+        textField.text = String(Int(equationArray[0])! / Int(equationArray[2])!)
+      
+      case "avg":
+        var index = 0
+        var result = 0
+        for i in stride(from: 0, to: equationArray.count - 1, by: 2) {
+          result = result + Int(equationArray[i])!
+        }
+        textField.text = "0"
+      
+      case "count":
+        if (equationArray.count % 2 == 1) {
+          textField.text = String(equationArray.count / 2 + 1)
+        } else {
+          textField.text = String(equationArray.count / 2)
+        }
+      case "fact":
+        var answer = 1
+        for i in 1...Int(equationArray[0])! {
+          answer = i * answer
+        }
+        textField.text = String(answer)
+      
+      default:
+        textField.text = "0"
+    }
+    solved = true
+  }
+  
+  //Utility
+  public func resetText() {
+    if (solved) {
+      textField.text = ""
+      solved = false
+    }
   }
 }
 
