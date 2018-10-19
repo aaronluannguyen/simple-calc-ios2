@@ -24,6 +24,11 @@ class ViewController: UIViewController {
   //Text field
   @IBOutlet weak var textField: UILabel!
   
+  //To History Button
+  @IBAction func HistoryButton(_ sender: Any) {
+    performSegue(withIdentifier: "CalculatorToHistory", sender: self)
+  }
+  
   //Toggle for solving types
   @IBAction func solverToggle(_ sender: UISegmentedControl) {
     switch sender.selectedSegmentIndex {
