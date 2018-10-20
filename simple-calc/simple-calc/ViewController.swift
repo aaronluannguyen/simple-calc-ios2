@@ -81,7 +81,14 @@ class ViewController: UIViewController {
   }
   
   public func solveEquation() {
+    let firstHalfEquation:String = textField.text!
+    var fullEquation:String = ""
     let equationArray = getStringArray(textField.text!)
+    if (equationArray.count <= 1) {
+      textField.text = "0"
+      solved = true
+      return
+    }
     if (solverType == 0) {
       switch equationArray[1] {
         case "+":
@@ -166,8 +173,9 @@ class ViewController: UIViewController {
           textField.text = String(answer)
         
         default:
-          textField.text = "0"
+          textField.text = "Invalid Request"
       }
+      fullEquation = String(firstHalfEquation + " = " + textField.text!)
     } else {
       switch equationArray[equationArray.count - 1] {
         case "+":
@@ -248,11 +256,13 @@ class ViewController: UIViewController {
           textField.text = String(answer)
         
         default:
-          textField.text = "0"
+          textField.text = "Invalid Request"
       }
+      fullEquation = String(firstHalfEquation + "= " + textField.text!)
     }
     
     solved = true
+    updateHistoryData(fullEquation)
   }
   
   //Utility
@@ -262,6 +272,13 @@ class ViewController: UIViewController {
       solved = false
       decimalUsed = false
     }
+  }
+  
+  public func updateHistoryData(_ args: String) {
+    let defaults = UserDefaults.standard
+    var historyArray = defaults.object(forKey: "HistoryArray") as? [String] ?? [String]()
+    historyArray.append(args)
+    defaults.set(historyArray, forKey: "HistoryArray")
   }
 }
 
