@@ -28,7 +28,7 @@ class HistoryViewController: UIViewController {
   //Gets history array from UserDefautls
   public func getHistoryArray() -> [String] {
     let defaults = UserDefaults.standard
-    return defaults.object(forKey: "HistoryArray") as! [String]
+    return defaults.object(forKey: "HistoryArray") as? [String] ?? [String]()
   }
   
   //Populate Scroll View with history labels
