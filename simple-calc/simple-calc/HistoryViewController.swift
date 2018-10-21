@@ -34,6 +34,7 @@ class HistoryViewController: UIViewController {
   //Populate Scroll View with history labels
   public func populateHistoryScrollView(_ args: [String]) {
     var height:CGFloat = 0
+    var contentRect = CGRect.zero
     for i in args.reversed() {
       let label = UILabel()
       label.text = i
@@ -46,13 +47,9 @@ class HistoryViewController: UIViewController {
       self.HistoryScrollView.addSubview(label)
       height += 25
       
-      var contentRect = CGRect.zero
-      
-      for view in HistoryScrollView.subviews {
-        contentRect = contentRect.union(view.frame)
-      }
-      HistoryScrollView.contentSize = contentRect.size
+      contentRect = contentRect.union(label.frame)
     }
+    HistoryScrollView.contentSize = contentRect.size
   }
   
   /*
