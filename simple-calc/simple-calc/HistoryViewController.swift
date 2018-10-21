@@ -45,6 +45,13 @@ class HistoryViewController: UIViewController {
       
       self.HistoryScrollView.addSubview(label)
       height += 25
+      
+      var contentRect = CGRect.zero
+      
+      for view in HistoryScrollView.subviews {
+        contentRect = contentRect.union(view.frame)
+      }
+      HistoryScrollView.contentSize = contentRect.size
     }
   }
   
