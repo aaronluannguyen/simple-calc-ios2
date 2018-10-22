@@ -39,8 +39,7 @@ class HistoryViewController: UIViewController {
       let label = UILabel()
       label.text = i
       label.textColor = UIColor.white
-      label.backgroundColor = UIColor.black
-      label.font = UIFont(name: "Montserrat", size: 50)
+      label.backgroundColor = UIColor.gray
       label.frame = CGRect(x: 0, y: height, width: HistoryScrollView.frame.width, height: 20)
       label.heightAnchor.constraint(equalToConstant: 20)
       
